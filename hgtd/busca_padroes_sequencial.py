@@ -59,30 +59,44 @@ class BuscaPadroes():
 	#
 
 	def boyerMoore(self):
+		b = BuscaPadroes()
 		i =0
-		while i<len(self.texto):
-			if self.texto[self.tam_padrao]!= self.padrao[self.tam_padrao]:
-				if calcBC()>calcGS():
-					i+=calcBC()
-				else:
-					i+=calcGS()
-			verificaIgualdadeBM()
-				
-		
+		while i<len(self.texto)-self.tam_padrao-1:
+			# print 'oi'	
+			for j in xrange(self.tam_padrao-1,-1, -1):
+				# print j ,'------'
+				# print self.texto[i+j]
+				# print self.padrao[j]
+				if(self.padrao[j]!=self.texto[i+j]):
+					i+=b.calcBC(self.texto[i+j], j)
+					# print 'mismatch'
+					break
+				elif (j==0 ): #significa que nao ocorreu incopatibilidade
+					self.contador+=1
+					# print 'contador --->', self.contador
+					i+=1
+			i+=1
+			# print 'i ---> ', len(self.texto)
 
-	def verificaIgualdadeBM():
-		pass
 
-	def calcBC():
-		pass
+	#			
+
+	#pular os caracteres ate q a incompatibilidade virar compatibilidade
+	def calcBC(self, c, j):
+		for i in xrange(j,0, -1):
+			if c==self.padrao[i]:
+				return j-i
+		return j
+	#
 
 	def calcGS():
 		pass
-
+	#
 #
 ############EXECUCAO##############
 
 b1 = BuscaPadroes()
-b1.buscaSequencial()
+# b1.buscaSequencial()
+b1.boyerMoore()
 print b1.contador
 # print b1.padrao
