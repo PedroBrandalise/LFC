@@ -35,8 +35,57 @@ delta = [(re.findall(r"[\w']+", file.readline()))]
 for linha in file:
 	delta.append( re.findall(r"[\w']+", linha))
 
-# print (delta[0])
-
-
+# print (len(delta))
+numAlf = len(delta)/numStates
+# print (numAlf,'vfdsvdf\n\n')
 
 file.close()	
+# afd = ''
+afd = '''
+for (int i= 0; i<strlen(cadeia);i++){
+	switch(currentState){
+
+'''
+
+for i in range(0,numStates):
+	afd +='\tcase '+delta[i*int(numAlf)][0]+''':\n'''
+	for j in range(0,int(numAlf)):
+		afd +='\t\tif(cadeia[i] == \''+delta[i*int(numAlf)+j][1]+ '\' ){\n \t\t\tcurrentState= '+delta[i*int(numAlf)+j][2]+';\n\t\t}\n'
+
+	afd +='''\tbreak;\n'''	
+
+afd +='\n\t}\n}'
+# print (afd)
+
+afdPre='''
+#include <iostream>
+#include <cstring>
+
+
+using namespace std;
+int main(int argc, char const *argv[])
+{
+	// definição das variaveis
+	char cadeia[5];
+	int currentState= '''+currentState +''';
+	int finalState = '''+final[0]+''';
+
+	cout<<"insira a cadeia"<<endl;
+	cin>> cadeia;
+'''
+
+afdPos = '''
+if (currentState==finalState)
+	{
+		cout<<"\\ncadeia aceita"<<endl;
+	}else{
+		cout<<"\\ncadeira recusada"<<endl;
+	}
+
+	return 0;
+}
+'''
+afdFinal = afdPre+afd+afdPos
+teste = open('afd3C.cpp','w')
+teste.write(afdFinal)
+teste.close
