@@ -1,0 +1,77 @@
+<program, Ident>
+<Test, Ident>
+<{, Operador>
+<int, KeyWord>
+<i, Ident>
+<;, Operador>
+<i, Ident>
+<+, Operador>
+<+, Operador>
+<;, Operador>
+<, Ident>
+<void, KeyWord>
+<SumUp, Ident>
+<(, Operador>
+<), Operador>
+<{, Ident>
+<int, KeyWord>
+<sum, Ident>
+<;, Operador>
+<, Ident>
+<sum, Ident>
+<=, Operador>
+<0, Numero>
+<;, Operador>
+<, Ident>
+<while, Ident>
+<(, Operador>
+<i, Ident>
+<>, Operador>
+<0, Numero>
+<), Operador>
+<{, Operador>
+<, Ident>
+<sum, Ident>
+<=, Operador>
+<sum, Ident>
+<+, Operador>
+<1, Numero>
+<;, Operador>
+<, Ident>
+<i, Ident>
+<=, Operador>
+<i, Ident>
+<-, Operador>
+<1, Numero>
+<;, Operador>
+<, Ident>
+<}, Ident>
+<write, KeyWord>
+<sum, Ident>
+<;, Operador>
+<}, Ident>
+<void, KeyWord>
+<Main, Ident>
+<(, Operador>
+<), Operador>
+<{, Ident>
+<read, KeyWord>
+<i, Ident>
+<;, Operador>
+<, Ident>
+<while, Ident>
+<(, Operador>
+<i, Ident>
+<>, Operador>
+<0, Numero>
+<), Operador>
+<{, Operador>
+<, Ident>
+<SumUp, Ident>
+<(, Operador>
+<), Operador>
+<;, Operador>
+<, Ident>
+<read, KeyWord>
+<i, Ident>
+<;, Operador>

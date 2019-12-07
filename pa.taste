@@ -1,0 +1,26 @@
+program PA {
+
+int init; 
+int q;
+int n;
+
+void pa(){
+	int i = 0;
+	while (i < n){
+		write init
+		init = init + q;
+		i=i+1;
+	}
+
+}
+
+void Main(){
+	
+	read init;
+	read q;
+	read n;
+
+	pa();
+	return 0;
+}
+ }
